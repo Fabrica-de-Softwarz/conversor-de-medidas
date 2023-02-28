@@ -17,7 +17,9 @@ export function getExchangeRate(apiUrl, appId) {
     const BASE_URL = 'https://arturcortez.pythonanywhere.com/calc';
    
     
-    const response = await fetch(`${BASE_URL}?${new URLSearchParams(payload)}`);
+    const response = await fetch(`${BASE_URL}?${new URLSearchParams(payload)}`, {
+      mode: 'no-cors'
+    });
     const json_values = await response.json();
     
     const rq_input = json_values.input;
