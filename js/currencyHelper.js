@@ -4,9 +4,6 @@ export function getExchangeRate(apiUrl, appId) {
     return fetch(url)
       .then(response => response.json())
       .then(data => data.rates.BRL)
-      //.then(usdToBrlRate => {
-       // return usdToBrlRate;
-      //})
       .catch(error => {
         console.log(`Error fetching exchange rate: ${error}`);
         throw error;

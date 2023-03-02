@@ -1,8 +1,8 @@
 
 
-import { getExchangeRate } from "./helper.js";
+import { getExchangeRate } from "./currencyHelper.js";
 
-import { calculate } from "./helper.js";
+import { calculate } from "./currencyHelper.js";
 
 const myForm = document.querySelector('#mainForm');
 
@@ -11,8 +11,7 @@ const btnConverter = document.getElementById("btn-converter");
 
  
   const valorInserido = document.querySelector("#valueToConvert");
-  const valorInseridoFloat = parseFloat(valorInserido.textContent);
-  console.log(parseFloat(valorInseridoFloat));
+  
 
 
 
@@ -41,9 +40,9 @@ btnConverter.addEventListener('click', async () => {
 
     const payload = {input: 'Datetime', number1: '11', number2: '20'};
 
-    const result = await calculate(payload);
+    //const result = await calculate(payload);
 
-    console.log(result);
+    //console.log(result);
 
 
     

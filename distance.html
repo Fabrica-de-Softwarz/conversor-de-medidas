@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script type="module" src="js/helper.js"></script>
-    <script type="module"  src="js/script.js"></script>
+    <script type="module" src="js/distanceHelper.js"></script>
+    <script type="module"  src="js/conversaoDistancia.js"></script>
 
 </head>
 <body> 
@@ -25,40 +25,47 @@
                 
             </div>
             <div class="box-right">
-                <form action="#" id="mainForm">
-                    
+                <h3> <a href="distance.html">Distancias</a> <br></h3>
+                <h3> <a href="currency.html">Moedas</a> </h3>
+            </div>
+            <div class="box-right">
+                <form action="#" id="distForm">
+
+                    <h3 id="distHeader">Comprimento</h3>
+                    <!--
                     <select class="input-padrao" id="conversionType">
                         <option value="moeda">Moeda</option>
                         <option value="comprimento">Comprimento</option>
                         <option value="temperatura">Temperatura</option>
-                    </select>
+                    </select>-->
                     
-                    <input type="text" id="valueToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+                    <input type="text" id="distToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
 
                     <div class="input-group">
-                        <select class="input-padrao" id="convertFromValueType">
+                        <select class="input-padrao" id="convertFromDistType">
                             <option value=""></option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
-                            <option value="euro">Euro</option>
+                            <option value="milha">Milha</option>
+                            <option value="jarda">Jarda</option>
+                            <option value="pé">Pé</option>
+                            <option value="polegada">Polegada</option>
                         </select>
 
                         <div class="icone-troca">
                             <img src="assets/img/icone-troca.svg" >
                         </div>
-                        <select class="input-padrao" id="convertToValueType">
+                        <select class="input-padrao" id="convertToDistType">
                             <option value=""></option>
-                            <option value="euro">Euro</option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
+                            <option value="centímetro">centímetro</option>
+                            <option value="metro">Metro</option>
+                            <option value="quilometro">Quilometro</option>
                             
                         </select>
                     </div>
 
-                    <input type="button" id="btn-converter" value="Converter" class="form-button">
+                    <input type="button" id="btn-distConverter" value="Converter" class="form-button">
 
                     <label for="resultado">Resultado:</label>
-                    <p id="resultado"></p>
+                    <p id="distResult"></p>
 
                 </form>
             </div>
