@@ -29,4 +29,7 @@ btnTempConverter.addEventListener('click', async () => {
     const valueInserted = document.getElementById("tempToConvert").value;
     var finalResult = defineTempConversionFactor(selectedValueConvertFromTemp, valueInserted);
     console.log(finalResult);
+
+    const resultadoElement = document.getElementById("tempResult");
+    resultadoElement.textContent = finalResult.toFixed(2);
 });

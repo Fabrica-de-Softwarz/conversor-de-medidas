@@ -5,13 +5,13 @@
             return 160934;
         case 'jarda':
             console.log("jarda")
-            return 91,44;
+            return 91.44;
         case 'pé':
             console.log("pé")
-            return 30,48;
+            return 30.48;
         case 'polegada':
             console.log("polegada")
-            return 2,54;
+            return 2.54;
     };
 }
 

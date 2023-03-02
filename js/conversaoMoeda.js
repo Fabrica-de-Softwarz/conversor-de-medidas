@@ -36,7 +36,7 @@ btnConverter.addEventListener('click', async () => {
     console.log(valueInserted);
 
     const appId = 'fc25242735d34e3da284c78de0776e75';
-    const resultadoElement = document.getElementById("resultado");
+    const resultadoElement = document.getElementById("currencyResult");
 
     const payload = {input: 'Datetime', number1: '11', number2: '20'};
 
@@ -46,16 +46,18 @@ btnConverter.addEventListener('click', async () => {
 
 
     
-/*
+
   // Usage:
   getExchangeRate("https://openexchangerates.org/api", appId)  
     .then(rate => {
-        console.log(parseFloat(valorInseridoFloat))
+        console.log(rate)
         const formattedRate = rate
-        resultadoElement.textContent = "USD to BRL value is " + 3 * formattedRate;
+        resultadoElement.textContent = "USD to BRL value is " + (valueInserted * formattedRate).toFixed(4);
     })  
     .catch(error => console.log(`Error: ${error}`));
-*/
+
+   
+
   });
 
    
