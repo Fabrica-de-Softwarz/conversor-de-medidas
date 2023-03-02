@@ -12,8 +12,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <script type="module" src="js/distanceHelper.js"></script>
-    <script type="module"  src="js/conversaoDistancia.js"></script>
+    <script type="module" src="js/conversaoTemperatura.js"></script>
+    <script type="module"  src="js/temperatureHelper.js"></script>
 
 </head>
 <body> 
@@ -46,38 +46,40 @@
             </div>
 
             <div class="box-right">
-                <form action="#" id="distForm">
+                <form action="#" id="tempForm">
 
-                    <h3 id="distHeader">Comprimento</h3>
+                    <h3 id="tempHeader">Temperatura</h3>
 
                     
-                    <input type="text" id="distToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+                    <input type="text" id="tempToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
 
                     <div class="input-group">
-                        <select class="input-padrao" id="convertFromDistType">
+                        <select class="input-padrao" id="convertFromTempType">
                             <option value=""></option>
-                            <option value="milha">Milha</option>
-                            <option value="jarda">Jarda</option>
-                            <option value="pé">Pé</option>
-                            <option value="polegada">Polegada</option>
+                            <option value="fahrenheit">Fahrenheit</option>
+                            <option value="celsius">Celsius</option>
+                            <option value="kelvin">Kelvin</option>
                         </select>
 
+                        <!--
                         <div class="icone-troca">
                             <img src="assets/img/icone-troca.svg" >
                         </div>
-                        <select class="input-padrao" id="convertToDistType">
+                        
+                        <select class="input-padrao" id="convertToTempType">
                             <option value=""></option>
                             <option value="centímetro">centímetro</option>
                             <option value="metro">Metro</option>
                             <option value="quilometro">Quilometro</option>
                             
                         </select>
+                        -->
                     </div>
 
-                    <input type="button" id="btn-distConverter" value="Converter" class="form-button">
+                    <input type="button" id="btn-TempConverter" value="Converter" class="form-button">
 
                     <label for="resultado">Resultado:</label>
-                    <p id="distResult"></p>
+                    <p id="tempResult"></p>
 
                 </form>
             </div>

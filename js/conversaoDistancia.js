@@ -34,6 +34,6 @@ btnDistConverter.addEventListener('click', async () => {
 
 
     const valueInserted = document.getElementById("distToConvert").value;
-    var finalResult = valueInserted * conversionFactor * conversionResultFactor;
+    var finalResult = valueInserted * conversionFactor / conversionResultFactor;
     console.log(finalResult);
 });

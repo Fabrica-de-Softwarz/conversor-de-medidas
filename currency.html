@@ -17,27 +17,41 @@
 
 </head>
 <body> 
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <h2><a class="nav-link active" href="currency.html">Moedas</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="distance.html">Distancias</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="temperature.html">Temperatura</a></h2>
+                        </li>
+            
+                    </ul>
+                </div>       
+            </nav>
+        </div>
+    </header>
 
     <main>
-        <div class="box">
-            <div class="box-left">
+
+
+        <div class="container-fluid">
+            <div class="container-fluid">
                 <h1 class="box-left-title">Conversor <br> <i> de </i> <br> Medidas</h1>
 
                 
             </div>
-            <div class="box-right">
-                <h3> <a href="distance.html">Distancias</a> <br></h3>
-                <h3> <a href="currency.html">Moedas</a> </h3>
-            </div>
+
             <div class="box-right">
  
                 <form action="#" id="mainForm">
                     
-                    <select class="input-padrao" id="conversionType">
-                        <option value="moeda">Moeda</option>
-                        <option value="comprimento">Comprimento</option>
-                        <option value="temperatura">Temperatura</option>
-                    </select>
                     
                     <input type="text" id="valueToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
 

@@ -2,16 +2,16 @@
     switch(conversionTypeFrom){
         case 'milha':
             console.log("milha")
-            return 5;
+            return 160934;
         case 'jarda':
             console.log("jarda")
-            return 7;
+            return 91,44;
         case 'pé':
             console.log("pé")
-            return 11;
+            return 30,48;
         case 'polegada':
             console.log("polegada")
-            return 13;
+            return 2,54;
     };
 }
 
@@ -25,7 +25,7 @@ export function defineConversionResultFactor(conversionTypeTo){
             return 100;
         case 'quilometro':
             console.log("quilômetro")
-            return 1000;
+            return 10000;
 
     };
 }
