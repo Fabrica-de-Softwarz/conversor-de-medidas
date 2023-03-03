@@ -56,36 +56,32 @@
 
             <div class="box-right">
  
-                <form action="#" id="mainForm">
+                <form action="#" id="binaryForm">
                     
-                    <h3 id="currencyHeader">Moedas</h3>
+                    <h3 id="binaryHeader">Números Binários</h3>
                     
-                    <input type="text" id="valueToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+                    <input type="text" id="binaryToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
 
                     <div class="input-group">
-                        <select class="input-padrao" id="convertFromValueType">
-                            <option value=""></option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
-                            <option value="euro">Euro</option>
+                        <select class="input-padrao" id="convertFromBinaryType">
+                            <option value="fromBinary">Binary</option>
+                            <option value="fromDecimal">Decimal</option>
+
                         </select>
 
                         <div class="icone-troca">
                             <img src="assets/img/icone-troca.svg" >
                         </div>
-                        <select class="input-padrao" id="convertToValueType">
-                            <option value=""></option>
-                            <option value="euro">Euro</option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
-                            
+                        <select class="input-padrao" id="convertToDecimalType">                          
+                            <option value="toDecimal">Decimal</option>
+                            <option value="toBinary">Binary</option>                           
                         </select>
                     </div>
 
-                    <input type="button" id="btn-converter" value="Converter" class="form-button">
+                    <input type="button" id="btn-binaryConverter" value="Converter" class="form-button">
 
-                    <label for="currencyResult">Resultado:</label>
-                    <p id="currencyResult"></p>
+                    <label for="binaryResult">Resultado:</label>
+                    <p id="binaryResult"></p>
 
                 </form>
             </div>
