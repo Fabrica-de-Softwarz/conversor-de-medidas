@@ -6,7 +6,7 @@ import { calculate } from "./currencyHelper.js";
 
 const myForm = document.querySelector('#mainForm');
 
-const btnConverter = document.getElementById("btn-converter");
+const btnConverter = document.getElementById("btn-currencyConverter");
 
 
  
