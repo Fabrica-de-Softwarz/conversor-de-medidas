@@ -1,4 +1,5 @@
-import { binaryCalculate } from "./binaryHelper.js";
+import { binaryCalculate, decimalCalculate, checkString } from "./binaryHelper.js";
+
 
 
 const myForm = document.querySelector('#binaryForm');
@@ -9,6 +10,7 @@ const btnbinaryConverter = document.getElementById("btn-binaryConverter");
  
 const insertbinary = document.querySelector("#binaryToConvert");
 
+var finalResult = 0;
 
 
 
@@ -29,17 +31,35 @@ btnbinaryConverter.addEventListener('click', async () => {
     const selectedOptionToConvertTo = selectElementToConvertTo.options[selectElementToConvertTo.selectedIndex];
     const selectedValueToConvertTo = selectedOptionToConvertTo.value;
     console.log(selectedValueToConvertTo);
-    //var conversionResultFactor = defineConversionResultFactor(selectedValueToConvertTo);
-    //console.log(conversionResultFactor);
-
 
     const valueInserted = document.getElementById("binaryToConvert").value;
-    console.log(valueInserted.toString().length);
-    const finalResult = binaryCalculate(valueInserted, valueInserted.toString().length);
-    console.log('finalResult is ' + finalResult);
-    //var finalResult = valueInserted * conversionFactor;
-    //console.log(finalResult);
 
-    const resultadoElement = document.getElementById("distResult");
-    //resultadoElement.textContent = finalResult.toFixed(2);
+    if(selectedValueConvertFrombinary == "fromBinary" && selectedValueToConvertTo == "toDecimal" ){
+        
+        console.log(valueInserted.toString().length);
+        finalResult = binaryCalculate(valueInserted, valueInserted.toString().length, 1);
+        console.log('finalResult is ' + finalResult);
+ 
+
+    } else if(selectedValueConvertFrombinary == "fromBinary" && selectedValueToConvertTo == "toBinary" ) {
+        finalResult = valueInserted;
+    }
+
+    if (selectedValueConvertFrombinary == "fromDecimal" && selectedValueToConvertTo == "toBinary"){
+       
+        console.log(valueInserted);
+        
+        finalResult = decimalCalculate(valueInserted);
+        console.log('finalResult is ' + finalResult);
+    }else if(selectedValueConvertFrombinary == "fromDecimal" && selectedValueToConvertTo == "toDecimal") {
+        finalResult = valueInserted;
+    }
+
+    
+
+
+
+    const resultadoElement = document.getElementById("binaryResult");
+    resultadoElement.textContent = "";
+    resultadoElement.textContent = Number(finalResult).toFixed(0);
 });
