@@ -60,19 +60,20 @@
                     
                     <h3 id="binaryHeader">Números Binários</h3>
                     
-                    <input type="text" id="binaryToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+                    <input type="text" id="valueToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
 
                     <div class="input-group">
-                        <select class="input-padrao" id="convertFromBinaryType">
+                        <select class="input-padrao" id="firstUnitType">
                             <option value="fromBinary">Binary</option>
                             <option value="fromDecimal">Decimal</option>
 
                         </select>
 
-                        <div class="icone-troca">
+                        <div class="icone-troca" id="btn-swap">
                             <img src="assets/img/icone-troca.svg" >
                         </div>
-                        <select class="input-padrao" id="convertToDecimalType">                          
+                        
+                        <select class="input-padrao" id="secondUnitType">                          
                             <option value="toDecimal">Decimal</option>
                             <option value="toBinary">Binary</option>                           
                         </select>

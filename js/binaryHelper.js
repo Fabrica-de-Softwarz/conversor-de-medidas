@@ -10,20 +10,12 @@ var multiplier = 0;
 var sumFactor = 0;
 var newNumber = 0;
 
-;
+
 multiplicand = binaryNumber % 10;
-
-
-//console.log('multiplicand: ' + multiplicand);
-
 multiplier = Math.pow(2, counter -1);
-//console.log('multiplier is ' + multiplier);
-
 newNumber = Math.floor(binaryNumber / 10);
-//console.log('newnumber is ' + newNumber);
-
 sumFactor = multiplicand * multiplier;
-//console.log('sumfactor is ' + sumFactor);
+
 
     if(numberLen == counter){
         return sumFactor;
