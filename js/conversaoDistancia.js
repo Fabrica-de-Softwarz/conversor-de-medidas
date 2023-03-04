@@ -1,42 +1,45 @@
 import { defineConversionFactor } from "./distanceHelper.js";
 import { defineConversionResultFactor } from "./distanceHelper.js";
 
-const myForm = document.querySelector('#distForm');
+//first unit type
+var firstDistUnitTypeElement = document.getElementById("imperialUnitTypeGroup");
+var selectedOptionFirstDistUnitType = firstDistUnitTypeElement.options[firstDistUnitTypeElement.selectedIndex];
+var firstDistUnitType = selectedOptionFirstDistUnitType.value;
+
+//second unit type
+var secondDistUnitTypeElement = document.getElementById("metricUnitTypeGroup");
+var selectedOptionSecondDistUnitType = secondDistUnitTypeElement.options[secondDistUnitTypeElement.selectedIndex];
+var secondDistUnitType = selectedOptionSecondDistUnitType.value;
 
 const btnDistConverter = document.getElementById("btn-distConverter");
 
+firstDistUnitTypeElement.addEventListener('change', (event) => {
+  selectedOptionFirstDistUnitType = firstDistUnitTypeElement.options[firstDistUnitTypeElement.selectedIndex];
+  firstDistUnitType = selectedOptionFirstDistUnitType.value;
+  console.log(firstDistUnitType);
+});
 
- 
-  const insertDistance = document.querySelector("#distToConvert");
+secondDistUnitTypeElement.addEventListener('change', (event) => {
+  selectedOptionSecondDistUnitType = secondDistUnitTypeElement.options[secondDistUnitTypeElement.selectedIndex];
+  secondDistUnitType = selectedOptionSecondDistUnitType.value;
+  console.log(secondDistUnitType);
+});
 
-
-
-
-// script.js
-//exchangeRateButton.addEventListener('click', () => {
 btnDistConverter.addEventListener('click', async () => {
 
-    //Moeda a Converter
-    const selectElementConvertFromDist = document.getElementById("convertFromDistType");
-    const selectedOptionConvertFromDist = selectElementConvertFromDist.options[selectElementConvertFromDist.selectedIndex];
-    const selectedValueConvertFromDist = selectedOptionConvertFromDist.value;
-    console.log(selectedValueConvertFromDist);
-    var conversionFactor = defineConversionFactor(selectedValueConvertFromDist);
+    console.log(firstDistUnitType + " to " + secondDistUnitType);
+    var conversionFactor = defineConversionFactor(firstDistUnitType);
     console.log(conversionFactor);
   
-    //Moeda pós-conversão
-    const selectElementToConvertTo = document.getElementById("convertToDistType");
-    const selectedOptionToConvertTo = selectElementToConvertTo.options[selectElementToConvertTo.selectedIndex];
-    const selectedValueToConvertTo = selectedOptionToConvertTo.value;
-    console.log(selectedValueToConvertTo);
-    var conversionResultFactor = defineConversionResultFactor(selectedValueToConvertTo);
+    var conversionResultFactor = defineConversionResultFactor(secondDistUnitType);
     console.log(conversionResultFactor);
 
 
     const valueInserted = document.getElementById("distToConvert").value;
     var finalResult = valueInserted * conversionFactor / conversionResultFactor;
+    var swapResult = (valueInserted * conversionResultFactor) / conversionFactor;
     console.log(finalResult);
 
     const resultadoElement = document.getElementById("distResult");
-    resultadoElement.textContent = finalResult.toFixed(2);
+    resultadoElement.textContent = finalResult.toFixed(2) + " " + secondDistUnitType +"s \t ou \r\n" +'\n'+ swapResult.toFixed(2) + " " + firstDistUnitType + "s";
 });

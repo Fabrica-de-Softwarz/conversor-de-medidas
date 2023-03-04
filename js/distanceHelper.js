@@ -25,7 +25,7 @@ export function defineConversionResultFactor(conversionTypeTo){
             return 100;
         case 'quilometro':
             console.log("quilômetro")
-            return 10000;
+            return 100000;
 
     };
 }
