@@ -59,32 +59,22 @@
                     <h3 id="tempHeader">Temperatura</h3>
 
                     
-                    <input type="text" id="tempToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+                    <input type="text" id="inputTempValue" name="valor" placeholder="Informe o valor" class="input-padrao">
 
                     <div class="input-group">
-                        <select class="input-padrao" id="convertFromTempType">
+                        <select class="input-padrao" id="select-tempType">
                             <option value=""></option>
                             <option value="fahrenheit">Fahrenheit</option>
                             <option value="celsius">Celsius</option>
                             <option value="kelvin">Kelvin</option>
                         </select>
 
-                        <!--
-                        <div class="icone-troca">
-                            <img src="assets/img/icone-troca.svg" >
-                        </div>
-                        
-                        <select class="input-padrao" id="convertToTempType">
-                            <option value=""></option>
-                            <option value="centímetro">centímetro</option>
-                            <option value="metro">Metro</option>
-                            <option value="quilometro">Quilometro</option>
-                            
-                        </select>
-                        -->
+
                     </div>
 
-                    <input type="button" id="btn-TempConverter" value="Converter" class="form-button">
+                    <input type="button" id="btn-convertToFahrenheit" value="Convert To Fahrenheit" class="form-button">
+                    <input type="button" id="btn-convertToCelsius" value="Convert To Celsius" class="form-button">
+                    <input type="button" id="btn-convertToKelvin" value="Convert To Kelvin" class="form-button">
 
                     <label for="resultado">Resultado:</label>
                     <p id="tempResult"></p>
