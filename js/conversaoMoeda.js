@@ -48,7 +48,9 @@ btnConverter.addEventListener('click', async () => {
       const exchangeRateBRL = rates.BRL;
       const exchangeRateEUR = rates.EUR;
 
-      if (firstSymbol == 'USD' && secondSymbol == 'BRL'){
+      if (firstSymbol == secondSymbol){
+        result = valueInserted;
+      }else if (firstSymbol == 'USD' && secondSymbol == 'BRL'){
         result = valueInserted * exchangeRateBRL
   
       } else if (firstSymbol == 'BRL' && secondSymbol == 'USD') {
