@@ -12,59 +12,61 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
+
 
 </head>
-<body> 
+
+<body class="container-fluid">
+    <div>
+        <header>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <h2><a class="nav-link active" href="index.html">Home</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="currency.html">Moedas</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="distance.html">Distancias</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="temperature.html">Temperatura</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="binary.html">Binary</a></h2>
+                            </li>
+                
+                        </ul>
+                    </div>       
+                </nav>
+            </div>
+        </header>
+    </div>
+
 
     <main>
-        <div class="box">
-            <div class="box-left">
-                <h1 class="box-left-title">Conversor <br> <i> de </i> <br> Medidas</h1>
-                
+
+        <div class="container text-center">
+            <div class="row">
+
             </div>
-            <div class="box-right">
-                <form action="#">
-                    
-                    <select class="input-padrao">
-                        <option value="moeda">Moeda</option>
-                        <option value="comprimento">Comprimento</option>
-                        <option value="temperatura">Temperatura</option>
-                    </select>
-                    
-                    <input type="text" name="valor" placeholder="Informe o valor" class="input-padrao">
+            <div class="row">
+                <div class="col-1"></div>
+                <div class="col-6">
+                    <nav class="nav">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="currency.html">Currency</a>
+                        <a class="nav-link" href="distance.html">Distance</a>
+                        <a class="nav-link" href="temperature.html">Temperature</a>
+                    </nav>
+                </div>
+                <div class="col-1"></div>
 
-                    <div class="input-group">
-                        <select class="input-padrao">
-                            <option value=""></option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
-                            <option value="euro">Euro</option>
-                        </select>
+            </div><!-- end of row -->
+        </main>
+    </div>
 
-                        <div class="icone-troca">
-                            <img src="assets/img/icone-troca.svg" >
-                        </div>
-                        <select class="input-padrao">
-                            <option value=""></option>
-                            <option value="euro">Euro</option>
-                            <option value="real">Real</option>
-                            <option value="dolar">Dólar</option>
-                            
-                        </select>
-                    </div>
-
-                    <input type="submit" value="Converter" class="form-button">
-
-                    <label for="resultado">Resultado:</label>
-                    <input type="text" id="resultado" disabled class="input-padrao">
-
-                </form>
-            </div>
-        </div>
-    </main>
-
-   
-    
 </body>
-</html>

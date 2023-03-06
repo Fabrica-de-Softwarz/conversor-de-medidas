@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor De Medidas</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="module" src="js/binaryHelper.js"></script>
+    <script type="module"  src="js/conversaoBinario.js"></script>
+
+</head>
+<body> 
+    <header>
+        <div>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <ul class="nav justify-content-center">
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="index.html">Home</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="currency.html">Moedas</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="distance.html">Distancias</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="temperature.html">Temperatura</a></h2>
+                        </li>
+                        <li class="nav-item">
+                            <h2><a class="nav-link" href="binary.html">Binary</a></h2>
+                        </li>
+            
+                    </ul>
+                </div>       
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <h1 class="box-left-title">Conversor <br> <i> de </i> <br> Medidas</h1>
+
+                
+            </div>
+
+            <div class="box-right">
+ 
+                <form action="#" id="binaryForm">
+                    
+                    <h3 id="binaryHeader">Números Binários</h3>
+                    
+                    <input type="text" id="valueToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+
+                    <div class="input-group">
+                        <select class="input-padrao" id="firstUnitType">
+                            <option value="fromBinary">Binary</option>
+                            <option value="fromDecimal">Decimal</option>
+
+                        </select>
+
+                        <div class="icone-troca" id="btn-swap">
+                            <img src="assets/img/icone-troca.svg" >
+                        </div>
+                        
+                        <select class="input-padrao" id="secondUnitType">                          
+                            <option value="toDecimal">Decimal</option>
+                            <option value="toBinary">Binary</option>                           
+                        </select>
+                    </div>
+
+                    <input type="button" id="btn-binaryConverter" value="Converter" class="form-button">
+
+                    <label for="binaryResult">Resultado:</label>
+                    <hs id="binaryResult"></h2>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+   
+    
+</body>
+</html>

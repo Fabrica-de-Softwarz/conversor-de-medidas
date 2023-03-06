@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor De Medidas</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <script type="module" src="js/conversaoTemperatura.js"></script>
+    <script type="module"  src="js/temperatureHelper.js"></script>
+
+</head>
+<body> 
+    <div>
+        <header>
+            <div>
+                <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                    <div class="container">
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <h2><a class="nav-link active" href="index.html">Home</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="currency.html">Moedas</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="distance.html">Distancias</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="temperature.html">Temperatura</a></h2>
+                            </li>
+                            <li class="nav-item">
+                                <h2><a class="nav-link" href="binary.html">Binary</a></h2>
+                            </li>
+                
+                        </ul>
+                    </div>       
+                </nav>
+            </div>
+        </header>
+    </div>
+
+    <main>
+        <div class="box">
+            <div class="box-left">
+                <h1 class="box-left-title">Conversor <br> <i> de </i> <br> Medidas</h1>
+                
+            </div>
+
+            <div class="box-right">
+                <form action="#" id="tempForm">
+
+                    <h3 id="tempHeader">Temperatura</h3>
+
+                    
+                    <input type="text" id="tempToConvert" name="valor" placeholder="Informe o valor" class="input-padrao">
+
+                    <div class="input-group">
+                        <select class="input-padrao" id="convertFromTempType">
+                            <option value=""></option>
+                            <option value="fahrenheit">Fahrenheit</option>
+                            <option value="celsius">Celsius</option>
+                            <option value="kelvin">Kelvin</option>
+                        </select>
+
+                        <!--
+                        <div class="icone-troca">
+                            <img src="assets/img/icone-troca.svg" >
+                        </div>
+                        
+                        <select class="input-padrao" id="convertToTempType">
+                            <option value=""></option>
+                            <option value="centímetro">centímetro</option>
+                            <option value="metro">Metro</option>
+                            <option value="quilometro">Quilometro</option>
+                            
+                        </select>
+                        -->
+                    </div>
+
+                    <input type="button" id="btn-TempConverter" value="Converter" class="form-button">
+
+                    <label for="resultado">Resultado:</label>
+                    <p id="tempResult"></p>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+   
+    
+</body>
+</html>
