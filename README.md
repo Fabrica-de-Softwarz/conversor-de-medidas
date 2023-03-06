@@ -2,8 +2,8 @@
 ## Conversor de Medidas: WebApp, Online; Java Backend; HTML, CSS, JS FrontEnd;
 
 >### BackEnd: 
-    >- Linguagem: Java; 
-    >- Líder: **Tércio**
+    >- Linguagem: Javascript; 
+    >- Líder: **Kitu**
     >- colaboradores: 
 
 >### FrontEnd:
