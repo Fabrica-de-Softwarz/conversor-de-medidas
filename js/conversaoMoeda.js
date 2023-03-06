@@ -1,61 +1,77 @@
 
 
-import { getExchangeRate } from "./currencyHelper.js";
-
-import { calculate } from "./currencyHelper.js";
-
-const myForm = document.querySelector('#mainForm');
+import { assignSymbols, getCurrencyRates } from "./currencyHelper.js";
 
 const btnConverter = document.getElementById("btn-currencyConverter");
 
 
- 
-  const valorInserido = document.querySelector("#valueToConvert");
+
+var firstCurrencyElement = document.getElementById("convertFromValueType");
+var selectedOptionFirstCurrency = firstCurrencyElement.options[firstCurrencyElement.selectedIndex];
+var firstCurrencyTypeValue = selectedOptionFirstCurrency.value;
   
+var secondCurrencyElement = document.getElementById("convertToValueType");
+var selectedOptionSecondCurrency = secondCurrencyElement.options[secondCurrencyElement.selectedIndex];
+var secondCurrencyTypeValue = selectedOptionSecondCurrency.value;
+var firstSymbol = "";
+var secondSymbol = "";
+var result = 0;
 
 
+firstCurrencyElement.addEventListener('change', (event) => {
+  selectedOptionFirstCurrency = firstCurrencyElement.options[firstCurrencyElement.selectedIndex];
+  firstCurrencyTypeValue = selectedOptionFirstCurrency.value;
+  console.log(firstCurrencyTypeValue);
+  firstSymbol = assignSymbols(firstCurrencyTypeValue);
+});
 
-// script.js
-//exchangeRateButton.addEventListener('click', () => {
+secondCurrencyElement.addEventListener('change', (event) => {
+  selectedOptionSecondCurrency = secondCurrencyElement.options[secondCurrencyElement.selectedIndex];
+  secondCurrencyTypeValue = selectedOptionSecondCurrency.value;
+  console.log(secondCurrencyTypeValue);
+  secondSymbol = assignSymbols(secondCurrencyTypeValue);
+});
+
+
 btnConverter.addEventListener('click', async () => {
 
-    //Moeda a Converter
-    const selectElementConvertFromValue = document.getElementById("convertFromValueType");
-    const selectedOptionConvertFromValue = selectElementConvertFromValue.options[selectElementConvertFromValue.selectedIndex];
-    const selectedValueConvertFromValue = selectedOptionConvertFromValue.value;
-    console.log(selectedValueConvertFromValue);
-  
-    //Moeda pós-conversão
-    const selectElementToConvertTo = document.getElementById("convertToValueType");
-    const selectedOptionToConvertTo = selectElementToConvertTo.options[selectElementToConvertTo.selectedIndex];
-    const selectedValueToConvertTo = selectedOptionToConvertTo.value;
-    console.log(selectedValueToConvertTo);
-
+    let changeEvent = new Event('change');
+    firstCurrencyElement.dispatchEvent(changeEvent);
+    secondCurrencyElement.dispatchEvent(changeEvent);
 
     const valueInserted = document.getElementById("valueToConvert").value;
     console.log(valueInserted);
 
-    const appId = 'fc25242735d34e3da284c78de0776e75';
-    const resultadoElement = document.getElementById("currencyResult");
+    //how to call a anonymous function inside a function; (() => {})();
+    (async () => {
+      const rates = await getCurrencyRates();
+      const exchangeRateBRL = rates.BRL;
+      const exchangeRateEUR = rates.EUR;
 
-    const payload = {input: 'Datetime', number1: '11', number2: '20'};
-
-    //const result = await calculate(payload);
-
-    //console.log(result);
-
-
-    
-
-  // Usage:
-  getExchangeRate("https://openexchangerates.org/api", appId)  
-    .then(rate => {
-        console.log(rate)
-        const formattedRate = rate
-        resultadoElement.textContent = "USD to BRL value is " + (valueInserted * formattedRate).toFixed(4);
-    })  
-    .catch(error => console.log(`Error: ${error}`));
-
+      if (firstSymbol == 'USD' && secondSymbol == 'BRL'){
+        result = valueInserted * exchangeRateBRL
+  
+      } else if (firstSymbol == 'BRL' && secondSymbol == 'USD') {
+        result = valueInserted / exchangeRateBRL
+  
+      } else if (firstSymbol == 'USD' && secondSymbol == 'EUR') {
+        result = valueInserted * exchangeRateEUR
+  
+      } else if (firstSymbol == 'EUR' && secondSymbol == 'USD') {
+        result = valueInserted / exchangeRateEUR
+  
+      } else if (firstSymbol == 'BRL' && secondSymbol == 'EUR') {
+        result = (valueInserted / exchangeRateBRL) * exchangeRateEUR
+  
+      } else if (firstSymbol == 'EUR'  && secondSymbol == 'BRL') {
+        result = (valueInserted / exchangeRateEUR) * exchangeRateBRL
+      }
+      
+      console.log(exchangeRateBRL +" & "+ exchangeRateEUR);
+      console.log(result);
+      const resultadoElement = document.getElementById("currencyResult");   
+      resultadoElement.textContent = Number(result).toFixed(2); 
+    })();
    
 
   });
