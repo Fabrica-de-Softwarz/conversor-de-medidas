@@ -44,10 +44,7 @@ btnConverter.addEventListener('click', async () => {
 
     //how to call a anonymous function inside a function; (() => {})();
     (async () => {
-      /*
-      const rates = await getCurrencyRates();
-      const exchangeRateBRL = rates.BRL;
-      const exchangeRateEUR = rates.EUR;*/
+
       
         const usdRate = await getCurrencyRateDate("USD");
         const eurRate = await getCurrencyRateDate("EUR");
@@ -76,7 +73,6 @@ btnConverter.addEventListener('click', async () => {
       } else if (firstSymbol == 'EUR'  && secondSymbol == 'BRL') {
         result = (valueInserted / eurRate)
       }
-      
       
       console.log(result);
       const resultadoElement = document.getElementById("currencyResult");   
