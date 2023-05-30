@@ -1,6 +1,6 @@
 
 
-import { assignSymbols, getCurrencyRates } from "./currencyHelper.js";
+import { assignSymbols, getCurrencyRateDate, getCurrencyRates } from "./currencyHelper.js";
 
 const btnConverter = document.getElementById("btn-currencyConverter");
 
@@ -44,32 +44,40 @@ btnConverter.addEventListener('click', async () => {
 
     //how to call a anonymous function inside a function; (() => {})();
     (async () => {
+      /*
       const rates = await getCurrencyRates();
       const exchangeRateBRL = rates.BRL;
-      const exchangeRateEUR = rates.EUR;
+      const exchangeRateEUR = rates.EUR;*/
+      
+        const usdRate = await getCurrencyRateDate("USD");
+        const eurRate = await getCurrencyRateDate("EUR");
+        console.log("USD: " + usdRate + " | " + "EUR: " + eurRate);
+      
 
+        
+      
       if (firstSymbol == secondSymbol){
         result = valueInserted;
       }else if (firstSymbol == 'USD' && secondSymbol == 'BRL'){
-        result = valueInserted * exchangeRateBRL
+        result = valueInserted / usdRate
   
       } else if (firstSymbol == 'BRL' && secondSymbol == 'USD') {
-        result = valueInserted / exchangeRateBRL
+        result = valueInserted * usdRate
   
       } else if (firstSymbol == 'USD' && secondSymbol == 'EUR') {
-        result = valueInserted * exchangeRateEUR
+        result = valueInserted * (usdRate / eurRate)
   
       } else if (firstSymbol == 'EUR' && secondSymbol == 'USD') {
-        result = valueInserted / exchangeRateEUR
+        result = valueInserted * (eurRate / usdRate)
   
       } else if (firstSymbol == 'BRL' && secondSymbol == 'EUR') {
-        result = (valueInserted / exchangeRateBRL) * exchangeRateEUR
+        result = (valueInserted * eurRate)
   
       } else if (firstSymbol == 'EUR'  && secondSymbol == 'BRL') {
-        result = (valueInserted / exchangeRateEUR) * exchangeRateBRL
+        result = (valueInserted / eurRate)
       }
       
-      console.log(exchangeRateBRL +" & "+ exchangeRateEUR);
+      
       console.log(result);
       const resultadoElement = document.getElementById("currencyResult");   
       resultadoElement.textContent = Number(result).toFixed(2); 

@@ -1,26 +1,30 @@
 export async function getCurrencyRates() {
   const appId = 'fc25242735d34e3da284c78de0776e75'
   const BASE_URL = `https://openexchangerates.org/api/latest.json?app_id=${appId}`;
+  const today = '05-29-2023'
+  const BCB_URL = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='${today}'&$top=100&$skip=0&$format=json&$select=cotacaoVenda`;
+  const BCB_CUR_URL = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoMoedaDia(moeda=@moeda,dataCotacao=@dataCotacao)?@moeda='EUR'&@dataCotacao='05-29-2023'&$top=1&$format=json&$select=cotacaoVenda`
 
   try {
-    const response = await fetch(BASE_URL);
+    /*const response = await fetch(BASE_URL);
+    
     const data = await response.json();
     const rates = data.rates;
-    console.log(rates);
-    return rates;
+    const cotacaoV = data.cotacaoVenda */
+    
+    const response = await fetch(BCB_URL);
+    const jsonData = await response.json();
+    const data = jsonData.value[0];
+    const cotacaoVenda = data.cotacaoVenda;
+    console.log(cotacaoVenda);
+
+    return cotacaoVenda;
   } catch (error) {
     console.error(error);
   }
 }
 
 
-
-export async function convertCurrency(amount, fromCurrency, toCurrency) {
-  const appId = 'fc25242735d34e3da284c78de0776e75';
-  const response = await fetch(`https://openexchangerates.org/api/convert/${amount}/${fromCurrency}/${toCurrency}?app_id=${appId}`);
-  const data = await response.json();
-  return data;
-}
 
 export function assignSymbols(currencyTarget){
  
@@ -46,6 +50,23 @@ export function assignSymbols(currencyTarget){
   return currencySymbol;
 }
 
+
+export async function getCurrencyRateDate(symbol= 'USD', date = '05-29-2023'){
+  const BCB_CUR_URL = `https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoMoedaDia(moeda=@moeda,dataCotacao=@dataCotacao)?@moeda='${symbol}'&@dataCotacao='${date}'&$top=1&$format=json&$select=cotacaoVenda`
+
+  try {    
+    const response = await fetch(BCB_CUR_URL);
+    const jsonData = await response.json();
+    const data = jsonData.value[0];
+    const cotacaoVenda = data.cotacaoVenda;
+    console.log(cotacaoVenda);
+
+    return cotacaoVenda;
+  } catch (error) {
+    console.error(error);
+  }
+
+}
 
 /*
 
